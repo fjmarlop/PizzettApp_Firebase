@@ -11,12 +11,14 @@ import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.addressesCl
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.addressesClientScreen.AddressesClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.extendedDetailClient.ExtendedDetailClientScreen
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.extendedDetailClient.ExtendedDetailClientViewModel
+import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.helpClient.HelpClientScreen
+import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.helpClient.HelpClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.mainDetailClient.DetailClientScreen
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.mainDetailClient.DetailClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.historyClient.ui.HistoryClientScreen
 import es.fjmarlop.pizzettappfirebase.vistasCliente.historyClient.ui.HistoryClientViewModel
-import es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.ui.MainClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.ui.MainClientScreen
+import es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.ui.MainClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.offersClient.ui.OffersClientScreen
 import es.fjmarlop.pizzettappfirebase.vistasCliente.offersClient.ui.OffersClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.shoppingCartClient.ui.ShoppingCartClientScreen
@@ -47,7 +49,8 @@ fun Browser(
     offersClientViewModel: OffersClientViewModel,
     shoppingCartClientViewModel: ShoppingCartClientViewModel,
     extendedDetailClientViewModel: ExtendedDetailClientViewModel,
-    addressesClientViewModel: AddressesClientViewModel
+    addressesClientViewModel: AddressesClientViewModel,
+    helpClientViewModel: HelpClientViewModel
 ) {
 
     val navigationController = rememberNavController()
@@ -105,6 +108,10 @@ fun Browser(
         composable<AddressesClientScreenNav> {
             val idClient = it.toRoute<AddressesClientScreenNav>().idClient
             AddressesClientScreen(navHost = navigationController, viewModel = addressesClientViewModel, idClient = idClient)
+        }
+
+        composable<HelpClientScreenNav> {
+            HelpClientScreen(navHost = navigationController, viewModel = helpClientViewModel)
         }
 
         composable<PantallaConArgumentosNav> { navBackStackEntry ->

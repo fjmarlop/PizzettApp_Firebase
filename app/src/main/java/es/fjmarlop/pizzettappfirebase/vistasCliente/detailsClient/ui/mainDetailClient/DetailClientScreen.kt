@@ -64,6 +64,7 @@ import es.fjmarlop.pizzettappfirebase.R
 import es.fjmarlop.pizzettappfirebase.core.navigation.AddressesClientScreenNav
 import es.fjmarlop.pizzettappfirebase.core.navigation.DetailClientScreenNav
 import es.fjmarlop.pizzettappfirebase.core.navigation.ExtendedDetailClientScreenNav
+import es.fjmarlop.pizzettappfirebase.core.navigation.HelpClientScreenNav
 import es.fjmarlop.pizzettappfirebase.core.navigation.HistoryClientScreenNav
 import es.fjmarlop.pizzettappfirebase.core.navigation.LoginScreenNav
 import es.fjmarlop.pizzettappfirebase.core.navigation.MainClientScreenNav
@@ -120,7 +121,7 @@ fun DetailClientScreen(navHost: NavHostController, viewModel: DetailClientViewMo
             }
 
             HelpTermsPrivacy(
-                onClickHelp = { },
+                onClickHelp = { navHost.navigate(HelpClientScreenNav)},
                 onClickTerms = { showTerms.value = true },
                 onClickPrivacy = { showPrivacy.value = true }
             )

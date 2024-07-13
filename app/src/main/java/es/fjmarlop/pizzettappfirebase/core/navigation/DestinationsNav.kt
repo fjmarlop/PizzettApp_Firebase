@@ -44,6 +44,9 @@ data class AddressesClientScreenNav(
 )
 
 @Serializable
+object HelpClientScreenNav
+
+@Serializable
 data class PantallaConArgumentosNav(
     val argumento: String
 )

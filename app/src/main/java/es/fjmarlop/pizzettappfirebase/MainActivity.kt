@@ -6,20 +6,21 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import es.fjmarlop.pizzettappfirebase.core.navigation.Browser
+import es.fjmarlop.pizzettappfirebase.core.ui.theme.AppTheme
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.addressesClientScreen.AddressesClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.extendedDetailClient.ExtendedDetailClientViewModel
+import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.helpClient.HelpClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.ui.mainDetailClient.DetailClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.historyClient.ui.HistoryClientViewModel
-import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.mainLogin.LoginViewModel
-import es.fjmarlop.pizzettappfirebase.core.navigation.Browser
-import es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.ui.SplashViewModel
-import es.fjmarlop.pizzettappfirebase.core.ui.theme.AppTheme
-import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.createAcount.CreateAccountViewModel
-import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.recoveryPassword.RecoveryPasswordViewModel
-import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.SignInMailViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.ui.MainClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.offersClient.ui.OffersClientViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.shoppingCartClient.ui.ShoppingCartClientViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.createAcount.CreateAccountViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.mainLogin.LoginViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.recoveryPassword.RecoveryPasswordViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.SignInMailViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.ui.SplashViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementViewModel
 
 @AndroidEntryPoint
@@ -38,6 +39,7 @@ class MainActivity : ComponentActivity() {
     private val shoppingCartClientViewModel: ShoppingCartClientViewModel by viewModels()
     private val extendedDetailClientViewModel: ExtendedDetailClientViewModel by viewModels()
     private val addressesClientViewModel: AddressesClientViewModel by viewModels()
+    private val helpClientViewModel: HelpClientViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +59,8 @@ class MainActivity : ComponentActivity() {
                        offersClientViewModel = offersClientViewModel,
                        shoppingCartClientViewModel = shoppingCartClientViewModel,
                        extendedDetailClientViewModel = extendedDetailClientViewModel,
-                       addressesClientViewModel = addressesClientViewModel
+                       addressesClientViewModel = addressesClientViewModel,
+                       helpClientViewModel = helpClientViewModel
                    )
             }
         }

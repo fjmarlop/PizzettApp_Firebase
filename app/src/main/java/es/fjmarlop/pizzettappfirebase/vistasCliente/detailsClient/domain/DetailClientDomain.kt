@@ -45,6 +45,7 @@ class DetailClientDomain @Inject constructor(
     }
 
     suspend fun saveNewAddressClient(newAddress: AddressModel, idClient: String): Boolean {
+        if (idClient.isEmpty()) return false
         return detailClientService.saveNewAddressClient(newAddress.toResponse(), idClient)
     }
 
@@ -55,12 +56,12 @@ class DetailClientDomain @Inject constructor(
     }
 
     suspend fun deleteAddressClient(idAddress: String, idClient: String): Boolean {
-        if (idAddress.isEmpty()) return false
+        if (idAddress.isEmpty() || idClient.isEmpty()) return false
         return detailClientService.deleteAddressClient(idAddress, idClient)
     }
 
     suspend fun doFav(idAddress: String, idClient: String): Boolean {
-        if (idAddress.isEmpty()) return false
-     return  detailClientService.doFav(idAddress, idClient)
+        if (idAddress.isEmpty() || idClient.isEmpty()) return false
+        return detailClientService.doFav(idAddress, idClient)
     }
 }
