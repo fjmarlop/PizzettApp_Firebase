@@ -4,6 +4,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.snapshots
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 
@@ -36,16 +38,17 @@ open class CrudRepository<T>(
     }
 
 
-    override suspend fun getById(collection: String, id: String, fieldId: String): Flow<T> {
+    override suspend fun getById(collection: String, id: String, fieldId: String): Flow<T?> {
         return firestore
             .collection(collection)
             .whereEqualTo(fieldId, id)
             .snapshots()
             .map { querySnapshot ->
                 val doc = querySnapshot.documents.firstOrNull()
-                doc?.toObject(clazz) ?: throw Exception("Document not found")
+                doc?.toObject(clazz) ?: throw Exception("Error: Document not found")
+            }.catch {
+               flowOf(null)
             }
-
     }
 
     override suspend fun delete(collection: String, id: String, fieldId: String): Boolean {
@@ -116,10 +119,14 @@ open class CrudRepository<T>(
         return result != null
 
     }
-    override suspend fun insertInSubCollection(collection: String, fieldId: String, id: String,
-                                      subCollection: String, item: Any): Boolean {
 
-        val idDoc = firestore.collection(collection).whereEqualTo(fieldId, id).get().await().documents[0].id
+    override suspend fun insertInSubCollection(
+        collection: String, fieldId: String, id: String,
+        subCollection: String, item: Any
+    ): Boolean {
+
+        val idDoc =
+            firestore.collection(collection).whereEqualTo(fieldId, id).get().await().documents[0].id
 
         val result = firestore
             .collection(collection)

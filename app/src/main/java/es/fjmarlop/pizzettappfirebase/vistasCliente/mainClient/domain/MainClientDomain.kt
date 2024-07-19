@@ -2,6 +2,7 @@ package es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.domain
 
 import es.fjmarlop.pizzettappfirebase.entidades.model.CategoryModel
 import es.fjmarlop.pizzettappfirebase.entidades.model.ClientModel
+import es.fjmarlop.pizzettappfirebase.entidades.response.ClientResponse
 import es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.data.MainClientService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -20,7 +21,7 @@ class MainClientDomain @Inject constructor(
     }
 
     suspend fun getClient(idCliente: String): Flow<ClientModel> {
-        return service.getClient(idCliente).map { it.toModel()  }
+        return service.getClient(idCliente).map { it?.toModel() ?: ClientResponse().toModel() }
     }
 
     suspend fun getAllCategories(): Flow<List<CategoryModel>> {

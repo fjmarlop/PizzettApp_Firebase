@@ -4,11 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.domain.DetailClientDomain
-import es.fjmarlop.pizzettappfirebase.entidades.model.ClientModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,7 +18,7 @@ class DetailClientViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(DetailClientUiState())
     val uiState: StateFlow<DetailClientUiState> = _uiState
 
-    suspend fun getClient(): ClientModel {
+    suspend fun getClient() {
 
         resetUiState()
 
@@ -38,7 +36,6 @@ class DetailClientViewModel @Inject constructor(
             _uiState.value = _uiState.value.copy(client = it)
         }
 
-        return client.first()
     }
 
 

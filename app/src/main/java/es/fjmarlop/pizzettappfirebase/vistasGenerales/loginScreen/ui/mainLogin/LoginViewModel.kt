@@ -52,4 +52,33 @@ class LoginViewModel @Inject constructor(
 
     }
 
+    fun loginDemoMode(mode: Int, navigate: () -> Unit) {
+        viewModelScope.launch {
+            when (mode) {
+                1 -> {
+                    val result = withContext(Dispatchers.IO) {
+                        authService.initSession(
+                            "contacto@fjmarlop.es",
+                            "Admin1"
+                        )
+                    }
+                    if (result != null) {
+                        navigate()
+                    }
+                }
+
+                2 -> {
+                    val result = withContext(Dispatchers.IO) {
+                        authService.initSession(
+                            "empleado@fjmarlop.es",
+                            "Admin1"
+                        )
+                    }
+                    if (result != null) {
+                        navigate()
+                    }
+                }
+            }
+        }
+    }
 }

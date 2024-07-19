@@ -106,27 +106,27 @@ fun DetailClientScreen(navHost: NavHostController, viewModel: DetailClientViewMo
         ) {
 
             if (uiState.isAnonymous) {
+
                 DetailClientHeaderAnonymous {
                     viewModel.logOut {
                         navHost.navigate(LoginScreenNav) { popUpTo<LoginScreenNav>() }
                     }
                 }
+
             } else {
+
                 DetailClientHeader(
                     uiState = uiState,
                     onClickDetails = { navHost.navigate(ExtendedDetailClientScreenNav) },
                     onClickAddress = { navHost.navigate(AddressesClientScreenNav(uiState.client!!.idClient)) },
                     onClickSettings = { }
                 )
-            }
 
-            HelpTermsPrivacy(
-                onClickHelp = { navHost.navigate(HelpClientScreenNav)},
-                onClickTerms = { showTerms.value = true },
-                onClickPrivacy = { showPrivacy.value = true }
-            )
-
-            if (!uiState.isAnonymous) {
+                HelpTermsPrivacy(
+                    onClickHelp = { navHost.navigate(HelpClientScreenNav) },
+                    onClickTerms = { showTerms.value = true },
+                    onClickPrivacy = { showPrivacy.value = true }
+                )
 
                 DividerMain()
                 Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.padding_medium)))
@@ -151,6 +151,7 @@ fun DetailClientScreen(navHost: NavHostController, viewModel: DetailClientViewMo
             }
             Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.padding_large)))
         }
+
         if (showPrivacy.value) {
             AnimatedVisibility(visible = true) {
                 PrivacyPolices { showPrivacy.value = false }
@@ -162,6 +163,7 @@ fun DetailClientScreen(navHost: NavHostController, viewModel: DetailClientViewMo
             }
         }
     }
+
 }
 
 

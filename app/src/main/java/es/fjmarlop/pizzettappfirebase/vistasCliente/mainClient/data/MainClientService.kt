@@ -21,7 +21,7 @@ class MainClientService @Inject constructor(
         return clientRepository.findById(DatabaseValues.Collections.CLIENTS, DatabaseValues.Fields.ID_CLIENT, idClient)
     }
 
-    suspend fun getClient(idClient: String): Flow<ClientResponse> {
+    suspend fun getClient(idClient: String): Flow<ClientResponse?> {
         return clientRepository.getById(DatabaseValues.Collections.CLIENTS, idClient, DatabaseValues.Fields.ID_CLIENT)
     }
 
