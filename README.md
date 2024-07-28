@@ -1,6 +1,6 @@
 # PizzettApp con Firebase
  
-<h1> Refactorización de mi proyecto. Nuevas caracteristicas y Backend con Firebase </h1>
+<h1> Refactorización de mi proyecto. <br> Nuevas caracteristicas y Backend con Firebase </h1>
 
 <h2> ** Caracteristicas ** </h2>
 
@@ -24,3 +24,5 @@
 
 - Inicio de sesión: implementado el inicio de sesión con Firebase. Registro, recuperación de contraseña, inicio con Google, X y anónimo.
 - Modo Demo: permite el uso de la aplicación sin necesidad de registro y poder usar la app con todas las funciones.
+- Vista cuenta cliente: 
+  - Cuenta: gestión de direcciones, datos personales, muestra puntos afiliciación
