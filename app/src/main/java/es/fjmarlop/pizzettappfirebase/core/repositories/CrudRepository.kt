@@ -51,6 +51,19 @@ open class CrudRepository<T>(
             }
     }
 
+    override suspend fun getByField(collection: String, field: String, value: String): Flow<T?> {
+        return firestore
+            .collection(collection)
+            .whereEqualTo(field, value)
+            .snapshots()
+            .map { querySnapshot ->
+                val doc = querySnapshot.documents.firstOrNull()
+                doc?.toObject(clazz) ?: throw Exception("Error: Document not found")
+            }.catch {
+                flowOf(null)
+            }
+    }
+
     override suspend fun delete(collection: String, id: String, fieldId: String): Boolean {
         val querySnapshot =
             firestore.collection(collection)

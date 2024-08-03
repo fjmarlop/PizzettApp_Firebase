@@ -11,14 +11,13 @@
 
 <h2> ** Implementaciones ** </h2>
 
+- Kotlin y Jetpack Compose.
 - Version Catalog.
 - Inyección de dependencias con Hilt.
 - Arquitectura MVVM.
 - Firebase Auth.
 - Firebase FireStore.
 - Control de estados, corrutinas y flujo de datos.
-
-
 
 <h2> ** Novedades ** </h2>
 

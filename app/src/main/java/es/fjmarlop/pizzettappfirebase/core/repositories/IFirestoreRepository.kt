@@ -23,4 +23,6 @@ interface IFirestoreRepository<T> {
 
     suspend fun insertInSubCollection(collection: String, fieldId: String, id: String,
         subCollection: String, item: Any): Boolean
+
+    suspend fun getByField(collection: String, field: String, value: String): Flow<T?>
 }

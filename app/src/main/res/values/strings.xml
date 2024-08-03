@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">PizzettApp</string>
+    <string name="default_web_client_id">568701948765-9sr3ecmo4ms9tn1v60qeqvvuj4215ff7.apps.googleusercontent.com</string>
+    <!-- LOGIN -->
     <string name="bienve">Bienvenidos al restaurante</string>
     <string name="login_text_1">Para acceder a todas las características y beneficios, necesitas iniciar sesión en tu cuenta.</string>
     <string name="login_text_2">No te preocupes, ¡es súper fácil! Simplemente ingresa tus credenciales de inicio de sesión. Si no tienes cuenta te animamos a crearte una.</string>
@@ -10,7 +12,6 @@
     <string name="login_X">Iniciar sesión con X</string>
     <string name="newUser">¿Nuevo usuario?</string>
     <string name="invitado">Solo quiero echar un vistazo</string>
-    <string name="mainTitle">¿Qué te apetece comer hoy?</string>
     <string name="createAcc">Crear cuenta</string>
     <string name="email">Correo electrónico</string>
     <string name="email2">Introduce tu dirección correo</string>
@@ -23,6 +24,10 @@
     <string name="passReply2">La contraseña no coincide</string>
     <string name="close">Cerrar sesión</string>
     <string name="deleteAccount">Eliminar cuenta</string>
+    <!-- MAIN -->
+    <string name="mainTitle">¿Qué te apetece comer hoy?</string>
+    <string name="recomendations">Nuestros TOP</string>
+    <!-- ACCOUNT  -->
     <string name="detail">Detalles</string>
     <string name="adresses">Direcciones</string>
     <string name="settings">Ajustes</string>
@@ -57,9 +62,8 @@
     <string name="updateAlias">No se ha podido actualizar el alias</string>
     <string name="updateName">No se ha podido actualizar el nombre</string>
     <string name="updatePhone">No se ha podido actualizar el teléfono</string>
-
-    <string name="default_web_client_id">568701948765-9sr3ecmo4ms9tn1v60qeqvvuj4215ff7.apps.googleusercontent.com</string>
     <string name="deleteAddressFail">No se ha podido eliminar la dirección</string>
     <string name="doFavFail">Error al marcar como dirección favorita</string>
-    <string name="recomendations">Nuestros TOP</string>
+    <!--  HOME MANAGEMENT -->
+    <string name="titleManagement">Modo gestión PizzettApp</string>
 </resources>

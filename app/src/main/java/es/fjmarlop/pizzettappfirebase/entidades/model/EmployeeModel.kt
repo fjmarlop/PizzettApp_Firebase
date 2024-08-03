@@ -3,17 +3,17 @@ package es.fjmarlop.pizzettappfirebase.entidades.model
 import es.fjmarlop.pizzettappfirebase.entidades.response.EmployeeResponse
 
 data class EmployeeModel(
-    val idEmployee: String,
-    val emailEmployee: String,
-    val nameEmployee: String,
-    val firstNameEmployee: String
+    val idEmpleado: String,
+    val emailEmpleado: String,
+    val nombreEmpleado: String,
+    val apellidosEmpleado: String
 ) {
     fun toResponse(): EmployeeResponse {
         return EmployeeResponse(
-            idEmployee = idEmployee,
-            emailEmployee = emailEmployee,
-            nameEmployee = nameEmployee,
-            firstNameEmployee = firstNameEmployee
+            idEmpleado = idEmpleado,
+            emailEmpleado = emailEmpleado,
+            nombreEmpleado = nombreEmpleado,
+            apellidosEmpleado = apellidosEmpleado
         )
     }
 }

@@ -29,4 +29,5 @@ object EntitiesProvideModules {
     @Provides
     @Singleton
     fun provideEmployeeResponse(): Class<EmployeeResponse> = EmployeeResponse::class.java
+
 }
