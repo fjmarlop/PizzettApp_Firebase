@@ -2,6 +2,7 @@ package es.fjmarlop.pizzettappfirebase.core.repositories
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.snapshots
+import es.fjmarlop.pizzettappfirebase.core.DatabaseValues
 import es.fjmarlop.pizzettappfirebase.entidades.response.AddressResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -37,7 +38,8 @@ class AddressRepository @Inject constructor(
 
     suspend fun getAddressesClient(idClient: String): Flow<List<AddressResponse>> {
 
-        val idDoc = firestore.collection(DatabaseValues.Collections.CLIENTS).whereEqualTo(DatabaseValues.Fields.ID_CLIENT, idClient).get().await().documents[0].id
+        val idDoc = firestore.collection(DatabaseValues.Collections.CLIENTS).whereEqualTo(
+            DatabaseValues.Fields.ID_CLIENT, idClient).get().await().documents[0].id
 
         return firestore.collection(DatabaseValues.Collections.CLIENTS)
             .document(idDoc)
@@ -50,7 +52,8 @@ class AddressRepository @Inject constructor(
 
     suspend fun deleteAddress(idAddress: String, idClient: String): Boolean {
 
-        val idDoc = firestore.collection(DatabaseValues.Collections.CLIENTS).whereEqualTo(DatabaseValues.Fields.ID_CLIENT, idClient).get().await().documents[0].id
+        val idDoc = firestore.collection(DatabaseValues.Collections.CLIENTS).whereEqualTo(
+            DatabaseValues.Fields.ID_CLIENT, idClient).get().await().documents[0].id
 
         val querySnapshot =
             firestore.collection(DatabaseValues.Collections.CLIENTS)
@@ -69,7 +72,8 @@ class AddressRepository @Inject constructor(
 
     suspend fun updateFav(idAddress: String, idClient: String): Boolean {
 
-        val idDoc = firestore.collection(DatabaseValues.Collections.CLIENTS).whereEqualTo(DatabaseValues.Fields.ID_CLIENT, idClient).get().await().documents[0].id
+        val idDoc = firestore.collection(DatabaseValues.Collections.CLIENTS).whereEqualTo(
+            DatabaseValues.Fields.ID_CLIENT, idClient).get().await().documents[0].id
 
         val querySnapshot = firestore
             .collection(DatabaseValues.Collections.CLIENTS)

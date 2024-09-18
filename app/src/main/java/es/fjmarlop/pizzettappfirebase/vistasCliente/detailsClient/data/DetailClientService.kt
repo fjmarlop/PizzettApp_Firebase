@@ -2,7 +2,7 @@ package es.fjmarlop.pizzettappfirebase.vistasCliente.detailsClient.data
 
 import es.fjmarlop.pizzettappfirebase.core.repositories.AddressRepository
 import es.fjmarlop.pizzettappfirebase.core.repositories.ClientRepository
-import es.fjmarlop.pizzettappfirebase.core.repositories.DatabaseValues
+import es.fjmarlop.pizzettappfirebase.core.DatabaseValues
 import es.fjmarlop.pizzettappfirebase.entidades.response.AddressResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.ClientResponse
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.data.AuthService

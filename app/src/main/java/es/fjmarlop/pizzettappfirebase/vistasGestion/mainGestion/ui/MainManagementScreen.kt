@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import es.fjmarlop.pizzettappfirebase.R
 import es.fjmarlop.pizzettappfirebase.core.navigation.LoginScreenNav
+import es.fjmarlop.pizzettappfirebase.core.navigation.MainProductoScreenNav
 import es.fjmarlop.pizzettappfirebase.core.ui.theme.Pizza
 
 @Composable
@@ -72,7 +73,8 @@ fun MainManagementScreen(navHost: NavHostController, viewModel: MainManagementVi
                 HorizontalDivider(Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_medium)))
 
                 ItemManagement(title = "Categorias", image = Icons.Default.Category) { }
-                ItemManagement(title = "Productos", image = Icons.Default.LocalPizza) { }
+                ItemManagement(title = stringResource(id = R.string.titleProducts), image = Icons.Default.LocalPizza) { navHost.navigate(MainProductoScreenNav) }
+
             }
         }
     }

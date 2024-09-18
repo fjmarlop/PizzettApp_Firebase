@@ -34,6 +34,10 @@ import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.ui.SplashViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementScreen
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui.MainProductoScreen
+import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui.MainProductoViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.newProducto.ui.NewProductoScreen
+import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.newProducto.ui.NewProductoViewModel
 
 @Composable
 fun Browser(
@@ -50,7 +54,9 @@ fun Browser(
     shoppingCartClientViewModel: ShoppingCartClientViewModel,
     extendedDetailClientViewModel: ExtendedDetailClientViewModel,
     addressesClientViewModel: AddressesClientViewModel,
-    helpClientViewModel: HelpClientViewModel
+    helpClientViewModel: HelpClientViewModel,
+    mainProductoViewModel: MainProductoViewModel,
+    newProductoViewModel: NewProductoViewModel
 ) {
 
     val navigationController = rememberNavController()
@@ -74,7 +80,10 @@ fun Browser(
         }
 
         composable<RecoveryPasswordScreenNav> {
-            RecoveryPasswordScreen(navHost = navigationController, viewModel = recoveryPasswordViewModel)
+            RecoveryPasswordScreen(
+                navHost = navigationController,
+                viewModel = recoveryPasswordViewModel
+            )
         }
 
         composable<MainClientScreenNav> {
@@ -82,7 +91,10 @@ fun Browser(
         }
 
         composable<MainManagementScreenNav> {
-            MainManagementScreen(navHost = navigationController, viewModel = mainManagementViewModel)
+            MainManagementScreen(
+                navHost = navigationController,
+                viewModel = mainManagementViewModel
+            )
         }
 
         composable<DetailClientScreenNav> {
@@ -98,20 +110,41 @@ fun Browser(
         }
 
         composable<ShoppingCartClientScreenNav> {
-            ShoppingCartClientScreen(navHost = navigationController, viewModel = shoppingCartClientViewModel)
+            ShoppingCartClientScreen(
+                navHost = navigationController,
+                viewModel = shoppingCartClientViewModel
+            )
         }
 
         composable<ExtendedDetailClientScreenNav> {
-            ExtendedDetailClientScreen(navHost = navigationController, viewModel = extendedDetailClientViewModel)
+            ExtendedDetailClientScreen(
+                navHost = navigationController,
+                viewModel = extendedDetailClientViewModel
+            )
         }
 
         composable<AddressesClientScreenNav> {
             val idClient = it.toRoute<AddressesClientScreenNav>().idClient
-            AddressesClientScreen(navHost = navigationController, viewModel = addressesClientViewModel, idClient = idClient)
+            AddressesClientScreen(
+                navHost = navigationController,
+                viewModel = addressesClientViewModel,
+                idClient = idClient
+            )
         }
 
         composable<HelpClientScreenNav> {
             HelpClientScreen(navHost = navigationController, viewModel = helpClientViewModel)
+        }
+
+        composable<MainProductoScreenNav> {
+            MainProductoScreen(
+                navHost = navigationController,
+                viewModel = mainProductoViewModel
+            )
+        }
+
+        composable<NewProductoScreenNav> {
+            NewProductoScreen(navHost = navigationController, viewModel = newProductoViewModel)
         }
 
         composable<PantallaConArgumentosNav> { navBackStackEntry ->

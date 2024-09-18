@@ -8,6 +8,7 @@ import es.fjmarlop.pizzettappfirebase.entidades.response.AddressResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.CategoryResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.ClientResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.EmployeeResponse
+import es.fjmarlop.pizzettappfirebase.entidades.response.ProductResponse
 import javax.inject.Singleton
 
 @Module
@@ -30,4 +31,7 @@ object EntitiesProvideModules {
     @Singleton
     fun provideEmployeeResponse(): Class<EmployeeResponse> = EmployeeResponse::class.java
 
+    @Provides
+    @Singleton
+    fun provideProductResponse(): Class<ProductResponse> = ProductResponse::class.java
 }

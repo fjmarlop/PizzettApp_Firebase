@@ -66,4 +66,10 @@
     <string name="doFavFail">Error al marcar como dirección favorita</string>
     <!--  HOME MANAGEMENT -->
     <string name="titleManagement">Modo gestión PizzettApp</string>
+    <string name="titleProducts">Productos</string>
+    <string name="newProduct">Nuevo Producto</string>
+    <string name="search">Buscar</string>
+    <string name="description">Descripción</string>
+    <string name="urlImg">URL Imagen</string>
+    <string name="save">Guardar</string>
 </resources>

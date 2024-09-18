@@ -22,6 +22,8 @@ import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.recoveryPas
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.SignInMailViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.ui.SplashViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui.MainProductoViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.newProducto.ui.NewProductoViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -40,28 +42,32 @@ class MainActivity : ComponentActivity() {
     private val extendedDetailClientViewModel: ExtendedDetailClientViewModel by viewModels()
     private val addressesClientViewModel: AddressesClientViewModel by viewModels()
     private val helpClientViewModel: HelpClientViewModel by viewModels()
+    private val mainProductoViewModel: MainProductoViewModel by viewModels()
+    private val newProductoViewModel: NewProductoViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                   Browser(
-                       splashViewModel = splashViewModel,
-                       loginViewModel = loginViewModel,
-                       signInMailViewModel = signInMailViewModel,
-                       createAccountViewModel = createAccountViewModel,
-                       recoveryPasswordViewModel = recoveryPasswordViewModel,
-                       mainClientViewModel = mainClientViewModel,
-                       mainManagementViewModel = mainManagementViewModel,
-                       detailClientViewModel = detailClientViewModel,
-                       historyClientViewModel = historyClientViewModel,
-                       offersClientViewModel = offersClientViewModel,
-                       shoppingCartClientViewModel = shoppingCartClientViewModel,
-                       extendedDetailClientViewModel = extendedDetailClientViewModel,
-                       addressesClientViewModel = addressesClientViewModel,
-                       helpClientViewModel = helpClientViewModel
-                   )
+                Browser(
+                    splashViewModel = splashViewModel,
+                    loginViewModel = loginViewModel,
+                    signInMailViewModel = signInMailViewModel,
+                    createAccountViewModel = createAccountViewModel,
+                    recoveryPasswordViewModel = recoveryPasswordViewModel,
+                    mainClientViewModel = mainClientViewModel,
+                    mainManagementViewModel = mainManagementViewModel,
+                    detailClientViewModel = detailClientViewModel,
+                    historyClientViewModel = historyClientViewModel,
+                    offersClientViewModel = offersClientViewModel,
+                    shoppingCartClientViewModel = shoppingCartClientViewModel,
+                    extendedDetailClientViewModel = extendedDetailClientViewModel,
+                    addressesClientViewModel = addressesClientViewModel,
+                    helpClientViewModel = helpClientViewModel,
+                    mainProductoViewModel = mainProductoViewModel,
+                    newProductoViewModel = newProductoViewModel
+                )
             }
         }
     }

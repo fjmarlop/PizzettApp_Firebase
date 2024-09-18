@@ -2,7 +2,7 @@ package es.fjmarlop.pizzettappfirebase.vistasCliente.mainClient.data
 
 import es.fjmarlop.pizzettappfirebase.core.repositories.CategoriesRepository
 import es.fjmarlop.pizzettappfirebase.core.repositories.ClientRepository
-import es.fjmarlop.pizzettappfirebase.core.repositories.DatabaseValues
+import es.fjmarlop.pizzettappfirebase.core.DatabaseValues
 import es.fjmarlop.pizzettappfirebase.entidades.response.CategoryResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.ClientResponse
 import kotlinx.coroutines.flow.Flow

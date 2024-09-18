@@ -2,7 +2,7 @@ package es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.data
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
-import es.fjmarlop.pizzettappfirebase.core.repositories.DatabaseValues
+import es.fjmarlop.pizzettappfirebase.core.DatabaseValues
 import es.fjmarlop.pizzettappfirebase.entidades.response.EmployeeResponse
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject

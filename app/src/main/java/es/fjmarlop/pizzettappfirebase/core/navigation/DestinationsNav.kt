@@ -47,6 +47,12 @@ data class AddressesClientScreenNav(
 object HelpClientScreenNav
 
 @Serializable
+object MainProductoScreenNav
+
+@Serializable
+object NewProductoScreenNav
+
+@Serializable
 data class PantallaConArgumentosNav(
     val argumento: String
 )
