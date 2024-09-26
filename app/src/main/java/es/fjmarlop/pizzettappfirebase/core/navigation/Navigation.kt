@@ -32,12 +32,15 @@ import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.recoveryPas
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.SignInMailScreen
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.SignInMailViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.ui.SplashViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.categoriasGestion.mainCategorias.ui.MainCategoriaViewmodel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.categoriasGestion.mainCategorias.ui.MainCategoriasScreen
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementScreen
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui.MainProductoScreen
 import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui.MainProductoViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.newProducto.ui.NewProductoScreen
 import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.newProducto.ui.NewProductoViewModel
+
 
 @Composable
 fun Browser(
@@ -56,7 +59,8 @@ fun Browser(
     addressesClientViewModel: AddressesClientViewModel,
     helpClientViewModel: HelpClientViewModel,
     mainProductoViewModel: MainProductoViewModel,
-    newProductoViewModel: NewProductoViewModel
+    newProductoViewModel: NewProductoViewModel,
+    mainCategoriaViewModel: MainCategoriaViewmodel
 ) {
 
     val navigationController = rememberNavController()
@@ -145,6 +149,10 @@ fun Browser(
 
         composable<NewProductoScreenNav> {
             NewProductoScreen(navHost = navigationController, viewModel = newProductoViewModel)
+        }
+
+        composable<MainCategoriasScreenNav> {
+            MainCategoriasScreen(navHost = navigationController, viewModel = mainCategoriaViewModel)
         }
 
         composable<PantallaConArgumentosNav> { navBackStackEntry ->

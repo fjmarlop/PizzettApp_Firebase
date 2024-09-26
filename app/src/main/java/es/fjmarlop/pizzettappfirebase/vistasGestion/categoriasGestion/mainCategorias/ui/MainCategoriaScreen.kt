@@ -1,4 +1,4 @@
-package es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui
+package es.fjmarlop.pizzettappfirebase.vistasGestion.categoriasGestion.mainCategorias.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -13,23 +13,18 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,58 +33,63 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import es.fjmarlop.pizzettappfirebase.R
-import es.fjmarlop.pizzettappfirebase.core.navigation.NewProductoScreenNav
 import es.fjmarlop.pizzettappfirebase.core.ui.theme.BackTopBar
 import es.fjmarlop.pizzettappfirebase.core.ui.theme.Pizza
-import es.fjmarlop.pizzettappfirebase.entidades.model.ProductModel
-import es.fjmarlop.pizzettappfirebase.vistasGestion.categoriasGestion.mainCategorias.ui.ErrorMsg
+import es.fjmarlop.pizzettappfirebase.entidades.model.CategoryModel
 
 @Composable
-fun MainProductoScreen(navHost: NavHostController, viewModel: MainProductoViewModel) {
+fun MainCategoriasScreen(navHost: NavHostController, viewModel: MainCategoriaViewmodel) {
 
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle(MainCategoriasUiState())
 
-    LaunchedEffect(key1 = true) {
-        viewModel.resetSearch()
-        viewModel.getAllProducts()
-    }
-
-    Scaffold(
-        topBar = {
-            BackTopBar(title = stringResource(id = R.string.titleProducts)) {
-                navHost.navigateUp()
-            }
-        },
-        floatingActionButton = { NewProductFab { navHost.navigate(NewProductoScreenNav) } }
-    ) { paddingValues ->
+    Scaffold(topBar = {
+        BackTopBar(title = stringResource(id = R.string.titleCategories)) { navHost.navigateUp() }
+    }, floatingActionButton = { NewCategoryFab { /* TODO */ } }) { paddingValues ->
         Pizza()
         Box(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            Column(modifier = Modifier.fillMaxSize()) {
-                SearchBar(value = uiState.searchText) { viewModel.setTextSearch(it) }
-
-                if (uiState.products.isEmpty()) {
-                    ErrorMsg(msg = "No existen productos registrados")
-                } else {
-                    ProductList(products = uiState.products)
-                }
+            if (uiState.categorias.isEmpty()) {
+                ErrorMsg("No existen categorias registradas")
+            } else {
+                CategoriasList(uiState.categorias)
             }
         }
     }
 }
 
+@Composable
+fun ErrorMsg(msg: String) {
+    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Icon(
+            imageVector = Icons.Default.Error,
+            contentDescription = "Error",
+            modifier = Modifier
+                .padding(8.dp)
+                .size(48.dp),
+            tint = MaterialTheme.colorScheme.error
+        )
+        Text(text = msg)
+    }
+}
 
 @Composable
-fun ProductItem(product: ProductModel, onClick: () -> Unit) {
+fun CategoriasList(categorias: List<CategoryModel>) {
+    LazyColumn {
+        items(categorias) { category -> CategoriasItem(categoria = category){} }
+    }
+}
+
+@Composable
+fun CategoriasItem(categoria: CategoryModel, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -106,7 +106,7 @@ fun ProductItem(product: ProductModel, onClick: () -> Unit) {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = obtenerIniciales(product.nombreProducto).uppercase(),
+                text = categoria.nameCategory.take(1).uppercase(),
                 modifier = Modifier,
                 fontSize = 18.sp,
                 textAlign = TextAlign.Center,
@@ -115,7 +115,7 @@ fun ProductItem(product: ProductModel, onClick: () -> Unit) {
             )
         }
         Text(
-            text = product.nombreProducto, fontSize = 16.sp, modifier = Modifier
+            text =  categoria.nameCategory, fontSize = 16.sp, modifier = Modifier
                 .weight(1f)
                 .padding(start = dimensionResource(id = R.dimen.padding_large))
         )
@@ -128,64 +128,14 @@ fun ProductItem(product: ProductModel, onClick: () -> Unit) {
     HorizontalDivider(modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_large)))
 }
 
-fun obtenerIniciales(cadena: String): String {
-    val palabras = cadena.split(" ")
-    return if (palabras.size >= 2) {
-        palabras[0].take(1) + palabras[1].take(1)
-    } else {
-        cadena.take(2)
-    }
-}
-
 @Composable
-fun ProductList(products: List<ProductModel>) {
-
-    if (products.isEmpty()) {
-        Text(text = "Vacio")
-    } else {
-        LazyColumn {
-            items(products) { product ->
-                ProductItem(product = product) {}
-            }
-        }
-    }
-}
-
-
-@Composable
-fun SearchBar(value: String, onValueChange: (String) -> Unit) {
-    Row(
-        Modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(id = R.dimen.padding_medium))
-    ) {
-        OutlinedTextField(
-            value = value,
-            onValueChange = { onValueChange(it) },
-            modifier = Modifier.weight(1f),
-            placeholder = { Text(text = stringResource(id = R.string.search) + "...") },
-            maxLines = 1,
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-            keyboardActions = KeyboardActions(onSearch = { onValueChange(value) }),
-            trailingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = stringResource(id = R.string.search)
-                )
-            }
-        )
-    }
-}
-
-
-@Composable
-fun NewProductFab(onClick: () -> Unit) {
+fun NewCategoryFab(onClick: () -> Unit) {
     ExtendedFloatingActionButton(
-        text = { Text(text = stringResource(id = R.string.newProduct)) },
+        text = { Text(text = stringResource(id = R.string.newCategory)) },
         icon = {
             Icon(
                 imageVector = Icons.Default.Add,
-                contentDescription = stringResource(id = R.string.newProduct)
+                contentDescription = stringResource(id = R.string.newCategory)
             )
         },
         onClick = { onClick() },

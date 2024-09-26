@@ -9,6 +9,7 @@ import es.fjmarlop.pizzettappfirebase.entidades.response.CategoryResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.ClientResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.EmployeeResponse
 import es.fjmarlop.pizzettappfirebase.entidades.response.ProductResponse
+import es.fjmarlop.pizzettappfirebase.entidades.response.TamanioResponse
 import javax.inject.Singleton
 
 @Module
@@ -34,4 +35,8 @@ object EntitiesProvideModules {
     @Provides
     @Singleton
     fun provideProductResponse(): Class<ProductResponse> = ProductResponse::class.java
+
+    @Provides
+    @Singleton
+    fun provideTamanioResponse(): Class<TamanioResponse> = TamanioResponse::class.java
 }

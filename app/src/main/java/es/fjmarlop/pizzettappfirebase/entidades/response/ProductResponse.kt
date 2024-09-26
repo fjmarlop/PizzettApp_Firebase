@@ -3,16 +3,18 @@ package es.fjmarlop.pizzettappfirebase.entidades.response
 import es.fjmarlop.pizzettappfirebase.entidades.model.ProductModel
 
 data class ProductResponse(
-    val idProduct: String,
-    val nameProduct: String,
-    val descriptionProduct: String,
-    val urlImgProduct: String
+    val idProducto: String = "",
+    val nombreProducto: String = "",
+    val descripcionProducto: String = "",
+    val urlImgProducto: String = "",
+    val categoria: String = ""
 ) {
 
     fun toModel() = ProductModel(
-        idProduct = idProduct,
-        nameProduct = nameProduct,
-        descriptionProduct = descriptionProduct,
-        urlImgProduct = urlImgProduct
+        idProducto = idProducto,
+        nombreProducto = nombreProducto,
+        descripcionProducto = descripcionProducto,
+        urlImgProducto = urlImgProducto,
+        categoria = categoria
     )
 }

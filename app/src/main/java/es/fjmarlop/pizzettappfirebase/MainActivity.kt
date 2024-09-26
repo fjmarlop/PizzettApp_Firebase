@@ -21,6 +21,7 @@ import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.mainLogin.L
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.recoveryPassword.RecoveryPasswordViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.loginScreen.ui.signInMail.SignInMailViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGenerales.splashScreen.ui.SplashViewModel
+import es.fjmarlop.pizzettappfirebase.vistasGestion.categoriasGestion.mainCategorias.ui.MainCategoriaViewmodel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui.MainManagementViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.mainProducto.ui.MainProductoViewModel
 import es.fjmarlop.pizzettappfirebase.vistasGestion.productosGestion.newProducto.ui.NewProductoViewModel
@@ -44,6 +45,7 @@ class MainActivity : ComponentActivity() {
     private val helpClientViewModel: HelpClientViewModel by viewModels()
     private val mainProductoViewModel: MainProductoViewModel by viewModels()
     private val newProductoViewModel: NewProductoViewModel by viewModels()
+    private val mainCategoriaViewModel:MainCategoriaViewmodel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +68,8 @@ class MainActivity : ComponentActivity() {
                     addressesClientViewModel = addressesClientViewModel,
                     helpClientViewModel = helpClientViewModel,
                     mainProductoViewModel = mainProductoViewModel,
-                    newProductoViewModel = newProductoViewModel
+                    newProductoViewModel = newProductoViewModel,
+                    mainCategoriaViewModel = mainCategoriaViewModel
                 )
             }
         }

@@ -72,4 +72,9 @@
     <string name="description">Descripción</string>
     <string name="urlImg">URL Imagen</string>
     <string name="save">Guardar</string>
+    <string name="titleCategories">Categorias</string>
+    <string name="newCategory">Nueva categoría</string>
+    <string name="sizePvp">Tamaños y pvp</string>
+    <string name="titleTamanios">Tamaños</string>
+    <string name="addTamanoPvp">Seleccione para añadir tamaños y pvp</string>
 </resources>

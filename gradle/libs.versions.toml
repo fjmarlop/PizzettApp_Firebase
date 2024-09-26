@@ -13,10 +13,11 @@ uiTextGoogleFonts = "1.6.7"
 hilt = "2.48"
 services = "4.4.1"
 ksp = "1.9.0-1.0.12"
-navigation = "2.8.0-beta01"
+navigation = "2.8.1"
 firebaseBom = "33.0.0"
 kotlinxSerialization = "1.6.3"
 coil="2.4.0"
+
 
 
 

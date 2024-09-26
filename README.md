@@ -5,6 +5,7 @@
 <h2> ** Caracteristicas ** </h2>
 
 - Aplicación para gestionar el servicio de pedidos a una pizzeria.
+ 
 - 2 Modos: 
   - modo cliente: Ver productos, Ver ofertas, hacer pedidos, historial y administración de cuenta del cliente. 
   - modo gestión: Administrar carta, ofertas, gestión de pedidos.
@@ -18,10 +19,22 @@
 - Firebase Auth.
 - Firebase FireStore.
 - Control de estados, corrutinas y flujo de datos.
+- Implementación de un repositorio general para gestionar el CRUD de Firebase.
 
 <h2> ** Novedades ** </h2>
 
 - Inicio de sesión: implementado el inicio de sesión con Firebase. Registro, recuperación de contraseña, inicio con Google, X y anónimo.
-- Modo Demo: permite el uso de la aplicación sin necesidad de registro y poder usar la app con todas las funciones.
-- Vista cuenta cliente: 
-  - Cuenta: gestión de direcciones, datos personales, muestra puntos afiliciación
+- Modo Demo: permite el uso de la aplicación sin necesidad de registro y poder usar la app con todas las funciones. 
+
+
+<h3> Vistas cuenta cliente: </h3>
+
+- Mejoras en la interfaz gráfica.
+- Cuenta: gestión de direcciones, datos personales, muestra puntos afiliciación
+
+<h3> Vistas cuenta gestión: </h3>
+
+- Mejoras en la zona de gestión. 
+  - Rediseño de la interfaz gráfica..
+  - Añadido la sección de productos, categorias y tamaños.
+    

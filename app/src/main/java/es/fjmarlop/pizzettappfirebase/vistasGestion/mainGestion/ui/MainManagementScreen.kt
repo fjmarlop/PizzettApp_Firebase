@@ -1,5 +1,6 @@
 package es.fjmarlop.pizzettappfirebase.vistasGestion.mainGestion.ui
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Architecture
 import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.LocalPizza
 import androidx.compose.material.icons.filled.Person
@@ -43,9 +45,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import es.fjmarlop.pizzettappfirebase.R
 import es.fjmarlop.pizzettappfirebase.core.navigation.LoginScreenNav
+import es.fjmarlop.pizzettappfirebase.core.navigation.MainCategoriasScreenNav
 import es.fjmarlop.pizzettappfirebase.core.navigation.MainProductoScreenNav
 import es.fjmarlop.pizzettappfirebase.core.ui.theme.Pizza
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun MainManagementScreen(navHost: NavHostController, viewModel: MainManagementViewModel) {
 
@@ -72,9 +76,23 @@ fun MainManagementScreen(navHost: NavHostController, viewModel: MainManagementVi
                 }
                 HorizontalDivider(Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_medium)))
 
-                ItemManagement(title = "Categorias", image = Icons.Default.Category) { }
-                ItemManagement(title = stringResource(id = R.string.titleProducts), image = Icons.Default.LocalPizza) { navHost.navigate(MainProductoScreenNav) }
+                ItemManagement(
+                    title = stringResource(id = R.string.titleCategories),
+                    image = Icons.Default.Category
+                ) {
+                    navHost.navigate(
+                        MainCategoriasScreenNav
+                    )
+                }
+                ItemManagement(
+                    title = stringResource(id = R.string.titleProducts),
+                    image = Icons.Default.LocalPizza
+                ) {
+                    navHost.navigate(MainProductoScreenNav)
+                }
+                ItemManagement(title = stringResource(id = R.string.titleTamanios), image = Icons.Default.Architecture) {
 
+                }
             }
         }
     }

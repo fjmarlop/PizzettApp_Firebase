@@ -24,6 +24,13 @@ class NewProductoViewModel @Inject constructor(
     val uiState: StateFlow<NewProductoUiState> = _uiState
 
 
+    fun getCategoriesList(){
+        viewModelScope.launch {
+            domain.getCategories().collect{ cat -> _uiState.value = _uiState.value.copy(categoriesList = cat.map { it.nameCategory }) }
+        }
+    }
+
+
     fun resetUiState() {
         _uiState.value = NewProductoUiState()
     }
@@ -47,16 +54,21 @@ class NewProductoViewModel @Inject constructor(
     fun createProduct(msg: String, navigate: () -> Unit) {
 
         val pr = ProductModel(
-            idProduct = System.currentTimeMillis().toString(),
-            nameProduct = _uiState.value.nombreProducto,
-            descriptionProduct = _uiState.value.descriptionProduct,
-            urlImgProduct = _uiState.value.urlImgProducto
+            idProducto =  System.currentTimeMillis().toString(),
+            nombreProducto = _uiState.value.nombreProducto,
+           descripcionProducto =  _uiState.value.descriptionProduct,
+            urlImgProducto = _uiState.value.urlImgProducto,
+            categoria = _uiState.value.category
         )
 
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) { domain.createProduct(pr) }
             if (!result) { utils.msgToastShort(msg) } else { navigate() }
         }
+    }
+
+    fun setCategory(categ: String) {
+        _uiState.value = _uiState.value.copy(category = categ)
     }
 
 }

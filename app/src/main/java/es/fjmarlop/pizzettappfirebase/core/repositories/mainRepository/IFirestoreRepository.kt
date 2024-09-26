@@ -1,4 +1,4 @@
-package es.fjmarlop.pizzettappfirebase.core.repositories
+package es.fjmarlop.pizzettappfirebase.core.repositories.mainRepository
 
 import kotlinx.coroutines.flow.Flow
 

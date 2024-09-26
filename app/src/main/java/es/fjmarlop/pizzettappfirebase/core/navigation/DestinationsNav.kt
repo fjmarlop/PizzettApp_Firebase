@@ -53,6 +53,9 @@ object MainProductoScreenNav
 object NewProductoScreenNav
 
 @Serializable
+object MainCategoriasScreenNav
+
+@Serializable
 data class PantallaConArgumentosNav(
     val argumento: String
 )

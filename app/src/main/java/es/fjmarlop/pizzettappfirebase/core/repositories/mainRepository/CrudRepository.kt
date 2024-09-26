@@ -1,4 +1,4 @@
-package es.fjmarlop.pizzettappfirebase.core.repositories
+package es.fjmarlop.pizzettappfirebase.core.repositories.mainRepository
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query

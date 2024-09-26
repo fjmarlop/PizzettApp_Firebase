@@ -14,7 +14,7 @@ object DatabaseValues {
 
         /** TABLA EMPLEADOS **/
         const val SURNAME_EMPLOYEE = "apellidoEmpleado"
-        const val   EMAIL_EMPLOYEE = "emailEmpleado"
+        const val EMAIL_EMPLOYEE = "emailEmpleado"
         const val NAME_EMPLOYEE = "nombreEmpleado"
         const val ID_EMPLOYEE = "idEmpleado"
 
@@ -48,6 +48,6 @@ object DatabaseValues {
         const val NAME_PRODUCT = "nombreProducto"
         const val DESCRIPTION_PRODUCT = "descripcionProducto"
         const val IMG_PRODUCT = "urlImgProducto"
-
+        const val CATEGORY_PRODUCT = "categoriaProducto"
     }
 }
